@@ -28,6 +28,8 @@
   flex: 1;
   flex-shrink: 1;
   flex-basis: 24px;
+  overflow: scroll;
+  height: 100vh;
 }
 
 .content-wrapper {
