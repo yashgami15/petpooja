@@ -1,0 +1,133 @@
+.outlet-homepage {
+  overflow: hidden;
+  background-color: #fff;
+  min-height: 100vh;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+}
+
+.main-layout {
+  position: relative;
+  display: flex;
+  width: 100%;
+  align-items: stretch;
+  justify-content: space-between;
+  flex: 1;
+  flex-wrap: wrap;
+  height: calc(100vh - 56px);
+}
+
+.content-area {
+  z-index: 0;
+  min-width: 240px;
+  padding-top: 24px;
+  padding-bottom: 24px;
+  flex: 1;
+  flex-shrink: 1;
+  flex-basis: 24px;
+}
+
+.content-wrapper {
+  width: 100%;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+.greeting-section {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  gap: 40px;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.greeting-title {
+  color: #212121;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1;
+  margin: 0;
+}
+
+.add-widget-btn {
+  border-radius: 8px;
+  border: 1px solid #ebebeb;
+  background: #fff;
+  display: flex;
+  min-height: 32px;
+  padding: 6px 14px;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 2;
+  color: #212121;
+  cursor: pointer;
+}
+
+.add-widget-btn:hover {
+  background-color: #f7f8fa;
+}
+
+.btn-icon {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+}
+
+.score-cards-container {
+  display: flex;
+  margin-top: 24px;
+  width: 100%;
+  align-items: center;
+  gap: 24px;
+  justify-content: start;
+  flex-wrap: wrap;
+}
+
+.main-scrollbar {
+  border-radius: 999px;
+  position: absolute;
+  z-index: 0;
+  display: flex;
+  width: 8px;
+  flex-shrink: 0;
+  height: 100px;
+  right: 0;
+  top: 30px;
+  background-color: #ebebeb;
+}
+
+@media (max-width: 991px) {
+  .content-area {
+    max-width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .content-wrapper {
+    max-width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .main-layout {
+    max-width: 100%;
+  }
+
+  .score-cards-container {
+    max-width: 100%;
+  }
+}

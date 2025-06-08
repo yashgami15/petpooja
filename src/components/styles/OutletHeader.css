@@ -1,0 +1,271 @@
+.outlet-header {
+  align-items: center;
+  border-bottom: 1px solid #ebebeb;
+  display: flex;
+  width: 100%;
+  padding: 12px 24px 12px 12px;
+  gap: 36px;
+  overflow: hidden;
+  justify-content: start;
+  flex-wrap: wrap;
+  background-color: #fff;
+}
+
+.header-left {
+  align-self: stretch;
+  display: flex;
+  margin-top: auto;
+  margin-bottom: auto;
+  min-height: 32px;
+  align-items: center;
+  gap: 8px;
+  justify-content: start;
+  width: 176px;
+}
+
+.logo-container {
+  align-self: stretch;
+  display: flex;
+  margin-top: auto;
+  margin-bottom: auto;
+  width: 86px;
+  align-items: center;
+  gap: 8px;
+  justify-content: start;
+}
+
+.logo {
+  aspect-ratio: 2.69;
+  object-fit: contain;
+  object-position: center;
+  width: 86px;
+  align-self: stretch;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.header-content {
+  align-self: stretch;
+  display: flex;
+  min-width: 240px;
+  margin-top: auto;
+  margin-bottom: auto;
+  align-items: center;
+  gap: 40px;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  flex: 1;
+  flex-shrink: 1;
+  flex-basis: 0%;
+}
+
+.breadcrumb {
+  align-self: stretch;
+  display: flex;
+  margin-top: auto;
+  margin-bottom: auto;
+  align-items: center;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-size: 12px;
+  color: #212121;
+  font-weight: 400;
+  white-space: nowrap;
+  text-align: center;
+  line-height: 2;
+  justify-content: start;
+}
+
+.breadcrumb-item {
+  align-self: stretch;
+  display: flex;
+  margin-top: auto;
+  margin-bottom: auto;
+  align-items: center;
+  gap: 4px;
+  justify-content: start;
+}
+
+.breadcrumb-icon {
+  aspect-ratio: 1;
+  object-fit: contain;
+  object-position: center;
+  width: 20px;
+  align-self: stretch;
+  margin-top: auto;
+  margin-bottom: auto;
+  flex-shrink: 0;
+}
+
+.header-actions {
+  align-self: stretch;
+  display: flex;
+  min-width: 240px;
+  margin-top: auto;
+  margin-bottom: auto;
+  align-items: center;
+  gap: 12px;
+  justify-content: start;
+  flex-wrap: wrap;
+}
+
+.notification-btn {
+  align-self: stretch;
+  display: flex;
+  margin-top: auto;
+  margin-bottom: auto;
+  min-height: 32px;
+  align-items: center;
+  gap: 10px;
+  justify-content: center;
+  width: 32px;
+}
+
+.notification-icon {
+  aspect-ratio: 1;
+  object-fit: contain;
+  object-position: center;
+  width: 20px;
+  align-self: stretch;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.date-picker,
+.outlet-selector {
+  align-self: stretch;
+  display: flex;
+  margin-top: auto;
+  margin-bottom: auto;
+  align-items: start;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-size: 12px;
+  color: #212121;
+  font-weight: 400;
+  line-height: 2;
+  justify-content: start;
+}
+
+.input-field {
+  align-items: start;
+  border-radius: 8px;
+  display: flex;
+  gap: 16px;
+  justify-content: start;
+  background-color: #f2f4f6;
+  padding: 6px 16px;
+  min-height: 32px;
+  align-items: center;
+  gap: 24px;
+  overflow: hidden;
+}
+
+.outlet-selector .input-field {
+  gap: 8px;
+}
+
+.input-text {
+  color: #212121;
+  align-self: stretch;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.calendar-icon {
+  align-self: stretch;
+  display: flex;
+  margin-top: auto;
+  margin-bottom: auto;
+  width: 16px;
+  flex-shrink: 0;
+  height: 16px;
+}
+
+.outlet-icon,
+.dropdown-icon {
+  aspect-ratio: 1;
+  object-fit: contain;
+  object-position: center;
+  width: 16px;
+  align-self: stretch;
+  margin-top: auto;
+  margin-bottom: auto;
+  flex-shrink: 0;
+}
+
+.divider {
+  align-self: stretch;
+  border-radius: 9999px;
+  display: flex;
+  width: 1px;
+  flex-shrink: 0;
+  height: 32px;
+  background-color: #ebebeb;
+}
+
+.create-btn {
+  align-self: stretch;
+  margin-top: auto;
+  margin-bottom: auto;
+  font-family:
+    Inter,
+    -apple-system,
+    Roboto,
+    Helvetica,
+    sans-serif;
+  font-size: 12px;
+  color: #fff;
+  font-weight: 500;
+  white-space: nowrap;
+  line-height: 2;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  display: flex;
+  min-height: 32px;
+  padding: 6px 14px;
+  background-color: #008745;
+  border: none;
+  cursor: pointer;
+  gap: 4px;
+}
+
+.create-btn:hover {
+  background-color: #006633;
+}
+
+@media (max-width: 991px) {
+  .outlet-header {
+    max-width: 100%;
+    padding-right: 20px;
+  }
+
+  .header-content {
+    max-width: 100%;
+  }
+
+  .header-actions {
+    max-width: 100%;
+  }
+
+  .breadcrumb {
+    white-space: initial;
+  }
+
+  .breadcrumb-item {
+    white-space: initial;
+  }
+
+  .create-btn {
+    white-space: initial;
+  }
+}
