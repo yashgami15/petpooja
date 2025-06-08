@@ -5,13 +5,8 @@ import "./styles/WorkAllocatedSection.css";
 const WorkAllocatedSection = () => {
   const [activeTab, setActiveTab] = useState("tasks");
 
-  const tabs = [
-    { id: "tasks", label: "Tasks", count: 10, active: true },
-    { id: "issues", label: "Issues", count: 10, active: false },
-    { id: "workflows", label: "Workflows", count: 10, active: false },
-  ];
-
-  const tasksData = [
+  // Task data with allocated information
+  const [allocatedTasks] = useState([
     {
       id: "3789",
       title: "How to Manage Stock",
@@ -20,9 +15,11 @@ const WorkAllocatedSection = () => {
       time: "11:00 am",
       status: "Ongoing",
       category: "Inventory",
+      assignedTo: "John Doe",
+      allocatedAt: "2024-06-08 10:30 AM",
     },
     {
-      id: "3789",
+      id: "3790",
       title: "How to Manage Stock",
       count: "14",
       date: "22 June, 2024",
@@ -30,6 +27,8 @@ const WorkAllocatedSection = () => {
       status: "Ongoing",
       category: "Inventory",
       highlighted: true,
+      assignedTo: "Jane Smith",
+      allocatedAt: "2024-06-08 11:15 AM",
     },
     {
       id: "7182",
@@ -39,6 +38,8 @@ const WorkAllocatedSection = () => {
       time: "11:00 am",
       status: "Ongoing",
       category: "Inventory",
+      assignedTo: "Mike Johnson",
+      allocatedAt: "2024-06-08 09:45 AM",
     },
     {
       id: "6047",
@@ -46,19 +47,23 @@ const WorkAllocatedSection = () => {
       count: "17",
       date: "",
       time: "",
-      status: "",
-      category: "",
+      status: "Assigned",
+      category: "Operations",
       simplified: true,
+      assignedTo: "Sarah Wilson",
+      allocatedAt: "2024-06-08 08:20 AM",
     },
     {
-      id: "6047",
+      id: "6048",
       title: "Tool for Managing Reservations",
       count: "17",
       date: "",
       time: "",
-      status: "",
-      category: "",
+      status: "Assigned",
+      category: "Operations",
       simplified: true,
+      assignedTo: "David Brown",
+      allocatedAt: "2024-06-08 07:30 AM",
     },
     {
       id: "4820",
@@ -66,11 +71,99 @@ const WorkAllocatedSection = () => {
       count: "15",
       date: "",
       time: "",
-      status: "",
-      category: "",
+      status: "Completed",
+      category: "Management",
       simplified: true,
+      assignedTo: "Lisa Anderson",
+      allocatedAt: "2024-06-07 16:45 PM",
+    },
+  ]);
+
+  const tabs = [
+    {
+      id: "tasks",
+      label: "Tasks",
+      count: allocatedTasks.length,
+      active: activeTab === "tasks",
+    },
+    {
+      id: "issues",
+      label: "Issues",
+      count: 10,
+      active: activeTab === "issues",
+    },
+    {
+      id: "workflows",
+      label: "Workflows",
+      count: 10,
+      active: activeTab === "workflows",
+    },
+    {
+      id: "taskslist",
+      label: "Tasks List",
+      count: allocatedTasks.length,
+      active: activeTab === "taskslist",
     },
   ];
+
+  const getStatusColor = (status) => {
+    const colors = {
+      Ongoing: "#D9A541",
+      Completed: "#039855",
+      Assigned: "#7955A3",
+      Overdue: "#D92D20",
+    };
+    return colors[status] || "#6B7280";
+  };
+
+  const renderTasksList = () => {
+    return (
+      <div className="tasks-list-view">
+        <div className="tasks-list-header">
+          <h3>All Allocated Tasks</h3>
+          <p>{allocatedTasks.length} total tasks</p>
+        </div>
+
+        <div className="tasks-table">
+          <div className="table-header">
+            <div>Task ID</div>
+            <div>Title</div>
+            <div>Assigned To</div>
+            <div>Status</div>
+            <div>Category</div>
+            <div>Allocated At</div>
+          </div>
+
+          {allocatedTasks.map((task) => (
+            <div key={task.id} className="table-row">
+              <div className="task-id-col">#{task.id}</div>
+              <div className="task-title-col">
+                <strong>{task.title}</strong>
+                {task.count && (
+                  <span className="count-badge">{task.count}</span>
+                )}
+              </div>
+              <div className="assigned-to-col">{task.assignedTo}</div>
+              <div className="status-col">
+                <span
+                  className="status-badge"
+                  style={{
+                    backgroundColor: getStatusColor(task.status) + "20",
+                    color: getStatusColor(task.status),
+                    border: `1px solid ${getStatusColor(task.status)}40`,
+                  }}
+                >
+                  {task.status}
+                </span>
+              </div>
+              <div className="category-col">{task.category}</div>
+              <div className="allocated-at-col">{task.allocatedAt}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    );
+  };
 
   return (
     <div className="work-allocated-section">
@@ -116,16 +209,35 @@ const WorkAllocatedSection = () => {
       </div>
 
       <div className="section-content">
-        <div className="tasks-grid">
-          {tasksData.slice(0, 3).map((task, index) => (
-            <TaskCard key={index} {...task} />
-          ))}
-        </div>
-        <div className="tasks-grid">
-          {tasksData.slice(3).map((task, index) => (
-            <TaskCard key={index + 3} {...task} />
-          ))}
-        </div>
+        {activeTab === "tasks" && (
+          <>
+            <div className="tasks-grid">
+              {allocatedTasks.slice(0, 3).map((task, index) => (
+                <TaskCard key={task.id} {...task} />
+              ))}
+            </div>
+            <div className="tasks-grid">
+              {allocatedTasks.slice(3).map((task, index) => (
+                <TaskCard key={task.id} {...task} />
+              ))}
+            </div>
+          </>
+        )}
+
+        {activeTab === "taskslist" && renderTasksList()}
+
+        {activeTab === "issues" && (
+          <div className="tab-content-placeholder">
+            <p>Issues content will be displayed here</p>
+          </div>
+        )}
+
+        {activeTab === "workflows" && (
+          <div className="tab-content-placeholder">
+            <p>Workflows content will be displayed here</p>
+          </div>
+        )}
+
         <div className="content-scrollbar"></div>
       </div>
     </div>
