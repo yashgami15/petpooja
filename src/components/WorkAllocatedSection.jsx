@@ -1,13 +1,17 @@
 import React, { useState } from "react";
 import TaskCard from "./TaskCard";
-import TaskAllocationForm from "./TaskAllocationForm";
-import TasksList from "./TasksList";
 import "./styles/WorkAllocatedSection.css";
 
 const WorkAllocatedSection = () => {
   const [activeTab, setActiveTab] = useState("tasks");
-  const [showAllocationForm, setShowAllocationForm] = useState(false);
-  const [allocatedTasks, setAllocatedTasks] = useState([
+
+  const tabs = [
+    { id: "tasks", label: "Tasks", count: 10, active: true },
+    { id: "issues", label: "Issues", count: 10, active: false },
+    { id: "workflows", label: "Workflows", count: 10, active: false },
+  ];
+
+  const tasksData = [
     {
       id: "3789",
       title: "How to Manage Stock",
@@ -16,11 +20,9 @@ const WorkAllocatedSection = () => {
       time: "11:00 am",
       status: "Ongoing",
       category: "Inventory",
-      assignedTo: "John Doe",
-      allocatedAt: new Date().toISOString(),
     },
     {
-      id: "3790",
+      id: "3789",
       title: "How to Manage Stock",
       count: "14",
       date: "22 June, 2024",
@@ -28,8 +30,6 @@ const WorkAllocatedSection = () => {
       status: "Ongoing",
       category: "Inventory",
       highlighted: true,
-      assignedTo: "Jane Smith",
-      allocatedAt: new Date().toISOString(),
     },
     {
       id: "7182",
@@ -39,8 +39,6 @@ const WorkAllocatedSection = () => {
       time: "11:00 am",
       status: "Ongoing",
       category: "Inventory",
-      assignedTo: "Mike Johnson",
-      allocatedAt: new Date().toISOString(),
     },
     {
       id: "6047",
@@ -51,11 +49,9 @@ const WorkAllocatedSection = () => {
       status: "",
       category: "",
       simplified: true,
-      assignedTo: "Sarah Wilson",
-      allocatedAt: new Date().toISOString(),
     },
     {
-      id: "6048",
+      id: "6047",
       title: "Tool for Managing Reservations",
       count: "17",
       date: "",
@@ -63,8 +59,6 @@ const WorkAllocatedSection = () => {
       status: "",
       category: "",
       simplified: true,
-      assignedTo: "David Brown",
-      allocatedAt: new Date().toISOString(),
     },
     {
       id: "4820",
@@ -75,58 +69,8 @@ const WorkAllocatedSection = () => {
       status: "",
       category: "",
       simplified: true,
-      assignedTo: "Lisa Anderson",
-      allocatedAt: new Date().toISOString(),
-    },
-  ]);
-
-  const tabs = [
-    {
-      id: "tasks",
-      label: "Tasks",
-      count: allocatedTasks.length,
-      active: activeTab === "tasks",
-    },
-    {
-      id: "issues",
-      label: "Issues",
-      count: 10,
-      active: activeTab === "issues",
-    },
-    {
-      id: "workflows",
-      label: "Workflows",
-      count: 10,
-      active: activeTab === "workflows",
-    },
-    {
-      id: "taskslist",
-      label: "Tasks List",
-      count: allocatedTasks.length,
-      active: activeTab === "taskslist",
     },
   ];
-
-  const handleTaskAllocation = (newTask) => {
-    const taskWithId = {
-      ...newTask,
-      id: Date.now().toString(),
-      allocatedAt: new Date().toISOString(),
-      status: "Assigned",
-    };
-    setAllocatedTasks((prev) => [...prev, taskWithId]);
-    setShowAllocationForm(false);
-  };
-
-  const handleDeleteTask = (taskId) => {
-    setAllocatedTasks((prev) => prev.filter((task) => task.id !== taskId));
-  };
-
-  const handleUpdateTask = (taskId, updates) => {
-    setAllocatedTasks((prev) =>
-      prev.map((task) => (task.id === taskId ? { ...task, ...updates } : task)),
-    );
-  };
 
   return (
     <div className="work-allocated-section">
@@ -151,17 +95,6 @@ const WorkAllocatedSection = () => {
         </div>
 
         <div className="section-controls">
-          <button
-            className="allocate-work-btn"
-            onClick={() => setShowAllocationForm(true)}
-          >
-            <img
-              src="https://cdn.builder.io/api/v1/image/assets/TEMP/23b888deff3c1af1b5f841505117da2f720afb35?placeholderIfAbsent=true"
-              alt="Add"
-              className="btn-icon"
-            />
-            Allocate Work
-          </button>
           <div className="employee-selector">
             <div className="selector-field">
               <span>Select Employee</span>
@@ -183,50 +116,18 @@ const WorkAllocatedSection = () => {
       </div>
 
       <div className="section-content">
-        {activeTab === "tasks" && (
-          <>
-            <div className="tasks-grid">
-              {allocatedTasks.slice(0, 3).map((task, index) => (
-                <TaskCard key={task.id} {...task} />
-              ))}
-            </div>
-            <div className="tasks-grid">
-              {allocatedTasks.slice(3).map((task, index) => (
-                <TaskCard key={task.id} {...task} />
-              ))}
-            </div>
-          </>
-        )}
-
-        {activeTab === "taskslist" && (
-          <TasksList
-            tasks={allocatedTasks}
-            onDeleteTask={handleDeleteTask}
-            onUpdateTask={handleUpdateTask}
-          />
-        )}
-
-        {activeTab === "issues" && (
-          <div className="tab-content-placeholder">
-            <p>Issues content will be displayed here</p>
-          </div>
-        )}
-
-        {activeTab === "workflows" && (
-          <div className="tab-content-placeholder">
-            <p>Workflows content will be displayed here</p>
-          </div>
-        )}
-
+        <div className="tasks-grid">
+          {tasksData.slice(0, 3).map((task, index) => (
+            <TaskCard key={index} {...task} />
+          ))}
+        </div>
+        <div className="tasks-grid">
+          {tasksData.slice(3).map((task, index) => (
+            <TaskCard key={index + 3} {...task} />
+          ))}
+        </div>
         <div className="content-scrollbar"></div>
       </div>
-
-      {showAllocationForm && (
-        <TaskAllocationForm
-          onSubmit={handleTaskAllocation}
-          onCancel={() => setShowAllocationForm(false)}
-        />
-      )}
     </div>
   );
 };
