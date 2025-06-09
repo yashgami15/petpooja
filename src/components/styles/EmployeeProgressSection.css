@@ -272,19 +272,6 @@
   height: 100%;
 }
 
-.table-scrollbar {
-  border-radius: 99999px;
-  position: absolute;
-  z-index: 0;
-  display: flex;
-  min-height: 40px;
-  width: 6px;
-  right: 1px;
-  bottom: 0px;
-  height: 60px;
-  background-color: #ebebeb;
-}
-
 @media (max-width: 991px) {
   .employee-progress-section {
     max-width: 100%;

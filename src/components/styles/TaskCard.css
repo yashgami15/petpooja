@@ -1,7 +1,7 @@
 .task-card {
   border-radius: 8px;
   align-self: stretch;
-  min-width: 240px;
+  min-width: 320px;
   margin-top: auto;
   margin-bottom: auto;
   padding: 12px;
@@ -11,7 +11,7 @@
   background-color: #f7f8fa;
 }
 
-.task-card.highlighted {
+.task-card:hover {
   border: 1px solid #ebebeb;
   box-shadow:
     0px 4px 6px -1px rgba(0, 0, 0, 0.1),

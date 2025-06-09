@@ -45,18 +45,11 @@
 }
 
 .header-content {
-  align-self: stretch;
   display: flex;
-  min-width: 240px;
-  margin-top: auto;
-  margin-bottom: auto;
-  align-items: center;
-  gap: 40px;
   justify-content: space-between;
-  flex-wrap: wrap;
   flex: 1;
-  flex-shrink: 1;
-  flex-basis: 0%;
+  text-align: center;
+  align-items: center;
 }
 
 .breadcrumb {

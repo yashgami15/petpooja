@@ -15,7 +15,7 @@ const OutletHeader = () => {
       </div>
 
       <div className="header-content">
-        <div className="breadcrumb">
+        <div className="Homeicon.main-layout">
           <div className="breadcrumb-item">
             <img
               src="https://cdn.builder.io/api/v1/image/assets/TEMP/b9803631a7a6418c829da7f5eb594f649a6c13d0?placeholderIfAbsent=true"

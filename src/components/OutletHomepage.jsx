@@ -97,7 +97,6 @@ const OutletHomepage = () => {
           <WorkAllocatedSection />
           <EmployeeProgressSection />
         </div>
-        <div className="main-scrollbar"></div>
       </div>
     </div>
   );

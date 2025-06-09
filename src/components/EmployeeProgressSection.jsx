@@ -95,7 +95,6 @@ const EmployeeProgressSection = () => {
             </div>
           ))}
         </div>
-        <div className="table-scrollbar"></div>
       </div>
     </div>
   );

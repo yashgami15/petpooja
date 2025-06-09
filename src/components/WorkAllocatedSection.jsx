@@ -6,9 +6,9 @@ const WorkAllocatedSection = () => {
   const [activeTab, setActiveTab] = useState("tasks");
 
   const tabs = [
-    { id: "tasks", label: "Tasks", count: 10, active: true },
-    { id: "issues", label: "Issues", count: 10, active: false },
-    { id: "workflows", label: "Workflows", count: 10, active: false },
+    { id: "tasks", label: "Tasks", count: 10 },
+    { id: "issues", label: "Issues", count: 10 },
+    { id: "workflows", label: "Workflows", count: 10 },
   ];
 
   const tasksData = [
@@ -72,23 +72,29 @@ const WorkAllocatedSection = () => {
     },
   ];
 
+  const filteredData = () => {
+    if (activeTab === "tasks") return tasksData; // Show tasks data for tasks tab
+    return []; // Empty array for issues and workflows tabs
+  };
+
   return (
     <div className="work-allocated-section">
-      <div className="section-header">
+      <div>
+        <div className="section-header">
         <div className="section-title-area">
           <h2 className="section-title">Work Allocated</h2>
           <div className="section-tabs">
             {tabs.map((tab) => (
               <div
                 key={tab.id}
-                className={`tab-item ${tab.active ? "active" : ""}`}
+                className={`tab-item ${activeTab === tab.id ? "active" : ""}`}
                 onClick={() => setActiveTab(tab.id)}
               >
                 <div className="tab-content">
                   <span className="tab-label">{tab.label}</span>
                   <span className="tab-count">{tab.count}</span>
                 </div>
-                {tab.active && <div className="tab-indicator"></div>}
+                {activeTab === tab.id && <div className="tab-indicator"></div>}
               </div>
             ))}
           </div>
@@ -113,20 +119,17 @@ const WorkAllocatedSection = () => {
             />
           </div>
         </div>
-      </div>
 
-      <div className="section-content">
+        </div>
+        <div>
+              <div className="section-content">
         <div className="tasks-grid">
-          {tasksData.slice(0, 3).map((task, index) => (
+          {filteredData().map((task, index) => (
             <TaskCard key={index} {...task} />
           ))}
         </div>
-        <div className="tasks-grid">
-          {tasksData.slice(3).map((task, index) => (
-            <TaskCard key={index + 3} {...task} />
-          ))}
+      </div>
         </div>
-        <div className="content-scrollbar"></div>
       </div>
     </div>
   );

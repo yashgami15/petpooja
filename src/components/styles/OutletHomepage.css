@@ -16,19 +16,13 @@
   align-items: stretch;
   justify-content: space-between;
   flex: 1;
-  flex-wrap: wrap;
-  height: calc(100vh - 56px);
+  height: 100vh;
 }
 
 .content-area {
-  z-index: 0;
-  min-width: 240px;
   padding-top: 24px;
   padding-bottom: 24px;
-  flex: 1;
-  flex-shrink: 1;
-  flex-basis: 24px;
-  overflow: scroll;
+  overflow: auto;
   height: 100vh;
 }
 
@@ -96,19 +90,6 @@
   gap: 24px;
   justify-content: start;
   flex-wrap: wrap;
-}
-
-.main-scrollbar {
-  border-radius: 999px;
-  position: absolute;
-  z-index: 0;
-  display: flex;
-  width: 8px;
-  flex-shrink: 0;
-  height: 100px;
-  right: 0;
-  top: 30px;
-  background-color: #ebebeb;
 }
 
 @media (max-width: 991px) {
