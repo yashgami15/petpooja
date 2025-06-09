@@ -38,7 +38,11 @@ const TaskCard = ({
       <div className="task-details">
         <div className="task-datetime">
           <div className="date-info">
-            <div className="calendar-icon-small"></div>
+            <img
+              src='./src/assets/calendar.svg'
+              alt="Time"
+              className="time-icon"
+            />
             <span>{date}</span>
           </div>
           <div className="time-info">

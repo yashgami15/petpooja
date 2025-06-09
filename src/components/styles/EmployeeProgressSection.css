@@ -132,7 +132,10 @@
   gap: 8px;
   justify-content: start;
 }
-
+.employee-progress-section .table-body{
+  height: 195px !important;
+  overflow: auto !important;
+}
 .employee-selector {
   display: flex;
   align-items: start;
