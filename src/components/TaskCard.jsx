@@ -27,7 +27,7 @@ const TaskCard = ({
         </div>
         <div className="task-count">
           <img
-            src="https://cdn.builder.io/api/v1/image/assets/TEMP/151d0af47720379fc681aa16518d26d786d79e6c?placeholderIfAbsent=true"
+            src="./src/assets/message.svg"
             alt="Count"
             className="count-icon"
           />
@@ -43,7 +43,7 @@ const TaskCard = ({
           </div>
           <div className="time-info">
             <img
-              src={`URL_${highlighted ? "122" : "120"}`}
+              src='./src/assets/clock.svg'
               alt="Time"
               className="time-icon"
             />
@@ -53,8 +53,7 @@ const TaskCard = ({
 
         <div className="task-tags">
           <div className="task-avatar">
-            <img
-              src="https://cdn.builder.io/api/v1/image/assets/TEMP/ce1d551580ffce19d5b1eec111f9e50089d9f23a?placeholderIfAbsent=true"
+            <img src="./src/assets/dataflow.svg"
               alt="User"
               className="avatar-icon"
             />

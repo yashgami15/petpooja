@@ -5,9 +5,9 @@ const EmployeeProgressSection = () => {
   const [activeTab, setActiveTab] = useState("tasks");
 
   const tabs = [
-    { id: "tasks", label: "Tasks", count: 10, active: true },
-    { id: "issues", label: "Issues", count: 10, active: false },
-    { id: "workflows", label: "Workflows", count: 10, active: false },
+    { id: "tasks", label: "Tasks", count: 10 },
+    { id: "issues", label: "Issues", count: 10 },
+    { id: "workflows", label: "Workflows", count: 10 },
   ];
 
   const tableData = [
@@ -18,6 +18,46 @@ const EmployeeProgressSection = () => {
       ongoing: "90",
       overdue: "90",
       completed: "90%",
+    },
+    {
+      name: "Rahul",
+      department: "Human Resources",
+      assigned: "31",
+      ongoing: "31",
+      overdue: "31",
+      completed: "31%",
+    },
+    {
+      name: "Priya",
+      department: "Sales Division",
+      assigned: "45",
+      ongoing: "45",
+      overdue: "45",
+      completed: "45%",
+    },
+    {
+      name: "Vikram",
+      department: "Research and Development",
+      assigned: "79",
+      ongoing: "79",
+      overdue: "79",
+      completed: "79%",
+    },
+    {
+      name: "Yash",
+      department: "Devloper",
+      assigned: "99",
+      ongoing: "99",
+      overdue: "99",
+      completed: "99%",
+    },
+    {
+      name: "Khushi",
+      department: "Designer",
+      assigned: "66",
+      ongoing: "66",
+      overdue: "66",
+      completed: "66%",
     },
   ];
 
@@ -30,14 +70,14 @@ const EmployeeProgressSection = () => {
             {tabs.map((tab) => (
               <div
                 key={tab.id}
-                className={`tab-item ${tab.active ? "active" : ""}`}
-                onClick={() => setActiveTab(tab.id)}
+                className={`tab-item ${activeTab === tab.id ? "active" : ""}`}
+                onClick={() => setActiveTab(tab.id)} // Update activeTab state on click
               >
                 <div className="tab-content">
                   <span className="tab-label">{tab.label}</span>
                   <span className="tab-count">{tab.count}</span>
                 </div>
-                {tab.active && <div className="tab-indicator"></div>}
+                {activeTab === tab.id && <div className="tab-indicator"></div>} {/* Indicator for active tab */}
               </div>
             ))}
           </div>
@@ -73,29 +113,46 @@ const EmployeeProgressSection = () => {
         </div>
       </div>
 
-      <div className="table-container">
-        <div className="table-header">
-          <div className="table-cell header-cell">Name</div>
-          <div className="table-cell header-cell">Department</div>
-          <div className="table-cell header-cell center">Assigned</div>
-          <div className="table-cell header-cell center">Ongoing</div>
-          <div className="table-cell header-cell center">Overdue</div>
-          <div className="table-cell header-cell center">Completed</div>
-        </div>
+      {/* Conditional rendering based on activeTab */}
+      {activeTab === "tasks" && (
+        <div className="table-container">
+          <div className="table-header">
+            <div className="table-cell header-cell">Name</div>
+            <div className="table-cell header-cell">Department</div>
+            <div className="table-cell header-cell center">Assigned</div>
+            <div className="table-cell header-cell center">Ongoing</div>
+            <div className="table-cell header-cell center">Overdue</div>
+            <div className="table-cell header-cell center">Completed</div>
+          </div>
 
-        <div className="table-body">
-          {tableData.map((row, index) => (
-            <div key={index} className="table-row">
-              <div className="table-cell">{row.name}</div>
-              <div className="table-cell">{row.department}</div>
-              <div className="table-cell center">{row.assigned}</div>
-              <div className="table-cell center">{row.ongoing}</div>
-              <div className="table-cell center">{row.overdue}</div>
-              <div className="table-cell center">{row.completed}</div>
-            </div>
-          ))}
+          <div className="table-body">
+            {tableData.map((row, index) => (
+              <div key={index} className="table-row">
+                <div className="table-cell">{row.name}</div>
+                <div className="table-cell">{row.department}</div>
+                <div className="table-cell center">{row.assigned}</div>
+                <div className="table-cell center">{row.ongoing}</div>
+                <div className="table-cell center">{row.overdue}</div>
+                <div className="table-cell center">{row.completed}</div>
+              </div>
+            ))}
+          </div>
         </div>
-      </div>
+      )}
+
+      {activeTab === "issues" && (
+        <div className="table-container">
+          {/* Placeholder for issues */}
+          <p>No issues data available</p>
+        </div>
+      )}
+
+      {activeTab === "workflows" && (
+        <div className="table-container">
+          {/* Placeholder for workflows */}
+          <p>No workflows data available</p>
+        </div>
+      )}
     </div>
   );
 };

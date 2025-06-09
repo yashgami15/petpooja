@@ -2,13 +2,8 @@
   border-right: 1px solid #ebebeb;
   z-index: 0;
   overflow: hidden;
-  font-family:
-    Inter,
-    -apple-system,
-    Roboto,
-    Helvetica,
-    sans-serif;
-  width: 200px;
+  font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+  width: 252px !important;
   background-color: #fff;
   display: flex;
   flex-direction: column;

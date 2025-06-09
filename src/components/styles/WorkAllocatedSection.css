@@ -1,9 +1,6 @@
 .work-allocated-section {
   margin-top: 24px;
   width: 100%;
-  padding-left: 24px;
-  padding-right: 24px;
-  padding-bottom: 24px;
 }
 
 .work-allocated-section > div:first-child {
@@ -202,8 +199,8 @@
   position: relative;
   width: 100%;
   padding: 16px;
-  overflow: hidden;
-  flex: 1;
+  overflow: auto;
+  height: 180px;
 }
 
 .tasks-grid {
