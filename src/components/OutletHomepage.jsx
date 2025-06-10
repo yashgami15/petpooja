@@ -5,7 +5,11 @@ import OutletSidebar from "./OutletSidebar";
 import ScoreCard from "./ScoreCard";
 import WorkAllocatedSection from "./WorkAllocatedSection";
 import EmployeeProgressSection from "./EmployeeProgressSection";
+import Notepad from "./PersonalNotepad"
 import "./styles/OutletHomepage.css";
+import PersonalNotepad from "./PersonalNotepad";
+import DepartmentAllocation from "./DepartmentAllocation";
+import TaskWorkflowDashboard from "./TaskWorkflowDashboard";
 
 const OutletHomepage = () => {
   const [activeTab, setActiveTab] = useState("home"); // State to track the active tab
@@ -73,6 +77,9 @@ const OutletHomepage = () => {
                 </div>
                 <WorkAllocatedSection />
                 <EmployeeProgressSection />
+                <PersonalNotepad />
+                <DepartmentAllocation />
+                <TaskWorkflowDashboard />
               </>
             )}
             {/* For other tabs, display blank content */}

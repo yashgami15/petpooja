@@ -1,0 +1,176 @@
+.department-allocation {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e5e7eb;
+  width: 100%;
+  max-width: 500px;
+    margin-top: 24px !important;
+}
+
+.allocation-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.allocation-title {
+  font-size: 16px;
+  font-weight: 500;
+  color: #111827;
+  margin: 0;
+}
+
+.action-icon {
+  width: 16px;
+  height: 16px;
+  color: #9ca3af;
+  cursor: pointer;
+}
+
+.action-icon:hover {
+  color: #6b7280;
+}
+
+.allocation-content {
+  padding: 24px;
+}
+
+.tab-navigation {
+  display: flex;
+  gap: 32px;
+  margin-bottom: 24px;
+}
+
+.tab-button {
+  background: none;
+  border: none;
+  padding: 0 0 8px 0;
+  font-size: 14px;
+  font-weight: 500;
+  color: #6b7280;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.tab-button:hover {
+  color: #374151;
+}
+
+.tab-button.active {
+  color: #10b981;
+  border-bottom-color: #10b981;
+}
+
+.chart-container {
+  position: relative;
+  height: 240px;
+  margin-bottom: 16px;
+}
+
+.y-axis {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 40px;
+}
+
+.y-label {
+  font-size: 12px;
+  color: #6b7280;
+  text-align: right;
+  padding-right: 8px;
+}
+
+.chart-area {
+  margin-left: 48px;
+  height: 200px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.bar-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.bar-stack {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 24px;
+}
+
+.bar {
+  width: 100%;
+  transition: all 0.3s ease;
+}
+
+.task-bar {
+  background: #6ee7b7;
+  border-radius: 0 0 4px 4px;
+}
+
+.overdue-bar {
+  background: #fde68a;
+  border-radius: 4px 4px 0 0;
+}
+
+.bar-container:hover .bar {
+  opacity: 0.8;
+}
+
+.x-axis-label {
+  text-align: center;
+  margin-top: 16px;
+  margin-left: 48px;
+}
+
+.x-axis-label span {
+  font-size: 12px;
+  color: #6b7280;
+}
+
+.legend {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  margin-top: 24px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.legend-color {
+  width: 12px;
+  height: 12px;
+  border-radius: 2px;
+}
+
+.task-color {
+  background: #6ee7b7;
+}
+
+.overdue-color {
+  background: #fde68a;
+}
+
+.legend-text {
+  font-size: 14px;
+  color: #6b7280;
+}
