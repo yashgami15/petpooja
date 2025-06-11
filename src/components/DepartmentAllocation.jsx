@@ -1,7 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './styles/DepartmentAllocation.css';
 
 const DepartmentAllocation = () => {
+
+  const [activeTab, setActiveTab] = useState("tasks");
+  
+    const tabs = [
+      { id: "tasks", label: "Tasks", count: 10 },
+      { id: "issues", label: "Issues", count: 10 },
+      { id: "workflows", label: "Workflows", count: 10 },
+    ];
+
   const departmentData = [
     { tasks: 15, overdue: 3 },
     { tasks: 32, overdue: 5 },
@@ -16,22 +25,46 @@ const DepartmentAllocation = () => {
 
   return (
     <div className="department-allocation">
-      <div className="allocation-header">
-        <h2 className="allocation-title">Department wise allocation</h2>
-        <svg className="action-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zM13 12a1 1 0 11-2 0 1 1 0 012 0zM20 12a1 1 0 11-2 0 1 1 0 012 0z" />
-        </svg>
-      </div>
-      
-      <div className="allocation-content">
-        {/* Tab Navigation */}
-        <div className="tab-navigation">
-          <button className="tab-button active">Tasks</button>
-          <button className="tab-button">Issues</button>
-          <button className="tab-button">Forms</button>
+      <div className="section-header">
+        <div className="section-title-area">
+          <h2 className="section-title">Employee wise progress</h2>
+          <div className="section-tabs">
+            {tabs.map((tab) => (
+              <div
+                key={tab.id}
+                className={`tab-item ${activeTab === tab.id ? "active" : ""}`}
+                onClick={() => setActiveTab(tab.id)} // Update activeTab state on click
+              >
+                <div className="tab-content">
+                  <span className="tab-label">{tab.label}</span>
+                  <span className="tab-count">{tab.count}</span>
+                </div>
+                {activeTab === tab.id && <div className="tab-indicator"></div>} {/* Indicator for active tab */}
+              </div>
+            ))}
+          </div>
         </div>
 
-        {/* Chart Container */}
+        <div className="section-controls">
+          <div className="control-buttons">
+            <div className="control-btn">
+              <img
+                src="https://cdn.builder.io/api/v1/image/assets/TEMP/728a0982b757c7c4b5b74ebe14a853936bbd03e3?placeholderIfAbsent=true"
+                alt="Control"
+                className="control-icon"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      
+
+        
+      
+      {/* Conditional rendering based on activeTab */}
+      {activeTab === "tasks" && (
+
+        <div>
         <div className="chart-container">
           {/* Y-axis labels */}
           <div className="y-axis">
@@ -83,7 +116,22 @@ const DepartmentAllocation = () => {
             <span className="legend-text">Overdue Tasks</span>
           </div>
         </div>
-      </div>
+        </div>
+      )}
+
+      {activeTab === "issues" && (
+        <div className="table-container">
+          {/* Placeholder for issues */}
+          <p>No issues data available</p>
+        </div>
+      )}
+
+      {activeTab === "workflows" && (
+        <div className="table-container">
+          {/* Placeholder for workflows */}
+          <p>No workflows data available</p>
+        </div>
+      )}
     </div>
   );
 };

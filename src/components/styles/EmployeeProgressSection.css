@@ -10,7 +10,7 @@
 }
 
 .section-header {
-  align-items: start;
+  align-items: center;
   border-bottom: 1px solid #ebebeb;
   z-index: 0;
   display: flex;

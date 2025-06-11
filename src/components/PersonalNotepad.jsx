@@ -25,15 +25,28 @@ const PersonalNotepad = () => {
 
   return (
     <div className="personal-notepad">
-      <div className="notepad-header">
-        <h2 className="notepad-title">Personal Notepad</h2>
-        <div className="notepad-actions">
-          <svg className="action-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-          </svg>
-          <svg className="action-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zM13 12a1 1 0 11-2 0 1 1 0 012 0zM20 12a1 1 0 11-2 0 1 1 0 012 0z" />
-          </svg>
+      <div className="section-header">
+        <div className="section-title-area">
+          <h2 className="section-title">Personal Notepad</h2>
+        </div>
+
+        <div className="section-controls">
+          <div className="control-buttons">
+            <div className="control-btn">
+              <img
+                src="https://cdn.builder.io/api/v1/image/assets/TEMP/8de604c5661f6d047c6945a3c4b13fb1922e8eff?placeholderIfAbsent=true"
+                alt="Control"
+                className="control-icon"
+              />
+            </div>
+            <div className="control-btn">
+              <img
+                src="https://cdn.builder.io/api/v1/image/assets/TEMP/728a0982b757c7c4b5b74ebe14a853936bbd03e3?placeholderIfAbsent=true"
+                alt="Control"
+                className="control-icon"
+              />
+            </div>
+          </div>
         </div>
       </div>
       
