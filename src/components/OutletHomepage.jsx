@@ -9,7 +9,8 @@ import Notepad from "./PersonalNotepad"
 import "./styles/OutletHomepage.css";
 import PersonalNotepad from "./PersonalNotepad";
 import DepartmentAllocation from "./DepartmentAllocation";
-import TaskWorkflowDashboard from "./TaskWorkflowDashboard";
+import OverdueTasksTable from "./OverdueTasksTable";
+import Workflows from "./Workflows";
 
 const OutletHomepage = () => {
   const [activeTab, setActiveTab] = useState("home"); // State to track the active tab
@@ -79,7 +80,8 @@ const OutletHomepage = () => {
                 <EmployeeProgressSection />
                 <PersonalNotepad />
                 <DepartmentAllocation />
-                <TaskWorkflowDashboard />
+                <OverdueTasksTable />
+                <Workflows />
               </>
             )}
             {/* For other tabs, display blank content */}

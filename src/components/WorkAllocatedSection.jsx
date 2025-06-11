@@ -136,6 +136,7 @@ const WorkAllocatedSection = () => {
         </div>
 
         </div>
+        
         <div>
               <div className="section-content">
         <div className="tasks-grid">

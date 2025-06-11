@@ -1,0 +1,20 @@
+.workflows-section {
+  margin-top: 24px;
+  width: 100%;
+}
+.workflows-section > div:first-child {
+  border-radius: 12px;
+  border: 1px solid #ebebeb;
+  min-height: 280px;
+  width: 100%;
+  overflow: hidden;
+  background-color: #fff;
+}
+.section-content {
+    background-color: rgba(255, 255, 255, 1);
+    position: relative;
+    width: 100%;
+    padding: 16px;
+    overflow: auto;
+    height: 280px;
+}
