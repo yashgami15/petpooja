@@ -1,11 +1,12 @@
 // OutletSidebar.js
 import React from "react";
 import "./styles/OutletSidebar.css";
+import homeicon from "/src/assets/sidebar/Home_Sidebar.svg";
 
 const OutletSidebar = ({ activeTab, onTabChange }) => {
   const menuItems = [
     {
-      icon: "./src/assets/sidebar/Home_Sidebar.svg",
+      icon: homeicon,
       label: "Home",
       id: "home"
     },
