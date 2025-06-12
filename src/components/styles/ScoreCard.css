@@ -2,7 +2,7 @@
   border-radius: 12px;
   border: 1px solid #ebebeb;
   align-self: stretch;
-  min-width: 372px;
+  min-width: 351px;
   margin-top: auto;
   margin-bottom: auto;
   padding: 16px;
@@ -130,5 +130,8 @@
 
   .stat-count {
     white-space: initial;
+  }
+  .score-card {
+    min-width: 335px;
   }
 }

@@ -11,9 +11,14 @@ import PersonalNotepad from "./PersonalNotepad";
 import DepartmentAllocation from "./DepartmentAllocation";
 import OverdueTasksTable from "./OverdueTasksTable";
 import Workflows from "./Workflows";
+import issueIcon from "/src/assets/issue_icon.svg";
+
 
 const OutletHomepage = () => {
-  const [activeTab, setActiveTab] = useState("home"); // State to track the active tab
+  const [activeTab, setActiveTab] = useState("home"); // existing state
+  const [sidebarOpen, setSidebarOpen] = useState(false); // newly added
+  const toggleSidebar = () => setSidebarOpen(!sidebarOpen);
+  const closeSidebar = () => setSidebarOpen(false);
 
   const scoreCardsData = [
     {
@@ -28,7 +33,7 @@ const OutletHomepage = () => {
     },
     {
       title: "22 Issues",
-      icon: null,
+      icon: issueIcon,
       stats: [
         { label: "Open", count: "10", color: "#D9A541", bgColor: "#FFF8E5" },
         { label: "Ignored", count: "2", color: "#D92D20", bgColor: "#FFF0E5" },
@@ -52,9 +57,46 @@ const OutletHomepage = () => {
 
   return (
     <div className="outlet-homepage">
-      <OutletHeader />
+      <div className="header-with-toggle">
+        <div className="sidebar-toggle-btn">
+          <button  className="togglebtn" onClick={toggleSidebar}>
+            ☰
+          </button>
+          <div className="logo-container">
+            <img
+              src="https://cdn.builder.io/api/v1/image/assets/TEMP/c92d1a6b5955022ce88aeb617beea395417eb6b0?placeholderIfAbsent=true"
+              alt="Logo"
+              className="logo"
+            />
+          </div>
+        </div>
+        <OutletHeader />
+      </div>
       <div className="main-layout">
-        <OutletSidebar activeTab={activeTab} onTabChange={handleTabChange} />
+        
+        {/* Desktop Sidebar */}
+<div className="desktop-sidebar">
+  <OutletSidebar activeTab={activeTab} onTabChange={handleTabChange} />
+</div>
+
+{/* Mobile Sidebar */}
+<div className={`responsive-sidebar ${sidebarOpen ? "open" : ""}`}>
+  <OutletSidebar
+    activeTab={activeTab}
+    onTabChange={(id) => {
+      handleTabChange(id);
+      closeSidebar();
+    }}
+  />
+</div>
+
+{/* Overlay for mobile */}
+<div
+  className={`sidebar-overlay ${sidebarOpen ? "show" : ""}`}
+  onClick={closeSidebar}
+/>
+
+
         <div className="content-area">
           <div className="content-wrapper">
             {/* Render content based on activeTab */}
@@ -76,12 +118,23 @@ const OutletHomepage = () => {
                     <ScoreCard key={index} {...card} />
                   ))}
                 </div>
+
                 <WorkAllocatedSection />
-                <EmployeeProgressSection />
-                <PersonalNotepad />
-                <DepartmentAllocation />
-                <OverdueTasksTable />
-                <Workflows />
+
+                <div className="single-line">
+                  <EmployeeProgressSection />
+                </div>
+
+                <div className="two-column">
+                  <PersonalNotepad />
+                  <DepartmentAllocation />
+                </div>
+
+                <div className="two-column">
+                  <OverdueTasksTable />
+                  <Workflows />
+                </div>
+
               </>
             )}
             {/* For other tabs, display blank content */}

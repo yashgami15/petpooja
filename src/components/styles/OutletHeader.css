@@ -262,3 +262,9 @@
     white-space: initial;
   }
 }
+
+@media (max-width: 768px) {
+.Homeicon{
+    display: none !important;
+  }
+}

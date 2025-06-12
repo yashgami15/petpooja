@@ -163,3 +163,95 @@
     white-space: initial;
   }
 }
+
+/* Toggle button for small screens */
+.sidebar-toggle-btn {
+  display: none;
+}
+
+.togglebtn{
+  background: none;
+  font-size: 24px;
+  border: none;
+  margin: 10px 16px;
+  cursor: pointer;
+  z-index: 100;
+}
+
+/* Wrapper for header + toggle */
+.header-with-toggle {
+  display: flex;
+  align-items: baseline;
+  justify-content: start;
+}
+
+/* Desktop sidebar visible on large screens */
+.desktop-sidebar {
+  display: block;
+}
+
+/* Overlay */
+.sidebar-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 99;
+  display: none;
+}
+
+.sidebar-overlay.show {
+  display: block;
+}
+
+/* Responsive sidebar for mobile */
+.responsive-sidebar {
+  position: fixed;
+  top: 0;
+  left: -260px;
+  width: 252px;
+  height: 100vh;
+  background-color: #fff;
+  z-index: 100;
+  transition: left 0.3s ease-in-out;
+  display: none;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* When open, slide in */
+.responsive-sidebar.open {
+  left: 0;
+}
+
+/* Responsive layout */
+@media (max-width: 768px) {
+  .sidebar-toggle-btn {
+    display: flex;
+  }
+
+  .header-left{
+    display: none !important;
+  }
+  
+  .header-with-toggle{
+    flex-direction: column;
+  }
+
+  .desktop-sidebar {
+    display: none;
+  }
+
+  .responsive-sidebar {
+    display: block;
+  }
+
+  .main-layout {
+    flex-direction: column;
+  }
+
+  .content-area {
+    width: 100%;
+  }
+}

@@ -10,7 +10,7 @@ const WorkFlowCard = ({
   highlighted = false,
 }) => {
   return (
-    <div className={`task-card ${highlighted ? "highlighted" : ""}`}>
+    <div className={`workflow-task-card ${highlighted ? "highlighted" : ""}`}>
       <div className="task-card-header">
         <div className="task-info">
           <h4 className="task-title">{title}</h4>

@@ -122,7 +122,6 @@
     height: max-content;
     border-radius: 100% !important;
 }
-}
 .task-datetime > div {
   align-self: stretch;
   display: flex;
@@ -264,4 +263,10 @@
   .category-tag {
     white-space: initial;
   }
+}
+
+@media (max-width: 991px) {
+    .task-card {
+    min-width: 300px;
+}
 }

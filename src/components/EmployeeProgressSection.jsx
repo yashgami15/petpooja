@@ -115,30 +115,34 @@ const EmployeeProgressSection = () => {
 
       {/* Conditional rendering based on activeTab */}
       {activeTab === "tasks" && (
-        <div className="table-container">
-          <div className="table-header">
-            <div className="table-cell header-cell">Name</div>
-            <div className="table-cell header-cell">Department</div>
-            <div className="table-cell header-cell center">Assigned</div>
-            <div className="table-cell header-cell center">Ongoing</div>
-            <div className="table-cell header-cell center">Overdue</div>
-            <div className="table-cell header-cell center">Completed</div>
-          </div>
+  <div className="employee-wise-table  employee-table">
+    <table className="table">
+      <thead className="thead">
+        <tr className="tr">
+          <th className="th">Name</th>
+          <th className="th">Department</th>
+          <th className="th">Assigned</th>
+          <th className="th">Ongoing</th>
+          <th className="th">Overdue</th>
+          <th className="th">Completed</th>
+        </tr>
+      </thead>
+      <tbody className="tbody">
+        {tableData.map((employee, index) => (
+          <tr className="tr" key={index}>
+            <td className="td">{employee.name}</td>
+            <td className="td">{employee.department}</td>
+            <td className="td">{employee.assigned}</td>
+            <td className="td">{employee.ongoing}</td>
+            <td className="td">{employee.overdue}</td>
+            <td className="td">{employee.completed}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+)}
 
-          <div className="table-body">
-            {tableData.map((row, index) => (
-              <div key={index} className="table-row">
-                <div className="table-cell">{row.name}</div>
-                <div className="table-cell">{row.department}</div>
-                <div className="table-cell center">{row.assigned}</div>
-                <div className="table-cell center">{row.ongoing}</div>
-                <div className="table-cell center">{row.overdue}</div>
-                <div className="table-cell center">{row.completed}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      )}
 
       {activeTab === "issues" && (
         <div className="table-container">

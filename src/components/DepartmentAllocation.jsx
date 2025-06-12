@@ -65,6 +65,17 @@ const DepartmentAllocation = () => {
       {activeTab === "tasks" && (
 
         <div>
+        {/* Legend */}
+        <div className="legend">
+          <div className="legend-item">
+            <div className="legend-color task-color"></div>
+            <span className="legend-text">Tasks</span>
+          </div>
+          <div className="legend-item">
+            <div className="legend-color overdue-color"></div>
+            <span className="legend-text">Overdue Tasks</span>
+          </div>
+        </div>
         <div className="chart-container">
           {/* Y-axis labels */}
           <div className="y-axis">
@@ -103,18 +114,6 @@ const DepartmentAllocation = () => {
         {/* X-axis label */}
         <div className="x-axis-label">
           <span>Departments</span>
-        </div>
-
-        {/* Legend */}
-        <div className="legend">
-          <div className="legend-item">
-            <div className="legend-color task-color"></div>
-            <span className="legend-text">Tasks</span>
-          </div>
-          <div className="legend-item">
-            <div className="legend-color overdue-color"></div>
-            <span className="legend-text">Overdue Tasks</span>
-          </div>
         </div>
         </div>
       )}
