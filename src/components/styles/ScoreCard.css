@@ -132,6 +132,6 @@
     white-space: initial;
   }
   .score-card {
-    min-width: 335px;
+    min-width: 100% !important;
   }
 }
