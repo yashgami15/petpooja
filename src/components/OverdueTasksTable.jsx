@@ -1,5 +1,6 @@
 import React from "react";
 import "./styles/OverdueTasksTable.css";
+import reassignicon from "../assets/Reassign_icon.svg";
 
 const OverdueTasksTable = () => {
   const tableData = [
@@ -50,7 +51,7 @@ const OverdueTasksTable = () => {
                 </td>
                 <td className="center">{row.duedate}</td>
                 <td className="center">
-                  <img src="./src/assets/Reassign_icon.svg" alt="Reassign" />
+                  <img src={reassignicon} alt="Reassign" />
                 </td>
               </tr>
             ))}
