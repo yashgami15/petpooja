@@ -1,12 +1,67 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Petpooja Dashboard – Figma to React Assignment
 
-Currently, two official plugins are available:
+This project is a take-home assignment for the Frontend Developer role, involving the conversion of a Figma dashboard design into a responsive React application.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## 🔧 Setup Instructions
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+1. Clone the repository:
+
+```bash
+git clone https://github.com/yashgami15/petpooja.git
+```
+
+2. Navigate to the project folder:
+
+```bash
+cd petpooja
+```
+
+3. Install the dependencies:
+
+```bash
+npm install
+```
+
+4. Run the development server:
+
+```bash
+npm run dev
+```
+
+The app will be running at `http://localhost:5173/`.
+
+---
+
+## 🛠️ Tools & Technologies Used
+
+- **React.js**
+- **Vite** (for fast development and build)
+- **Tailwind CSS** (for styling)
+- **Figma** (for UI design reference)
+- **GitHub** (for version control)
+- **Vercel** (for deployment)
+
+---
+
+## ⏱️ Time Taken
+
+- **Project Received:** 6th June (Friday)
+- **Started:** 7th June
+- **Completed:** 12th June
+
+---
+
+## 🤖 AI Tools Used
+
+- [**ChatGPT**](https://chat.openai.com) – Used for debugging, performance tips, and best practice references.
+- [**Builder.io**](https://www.builder.io/) – Used for generating or previewing components based on Figma designs.
+
+---
+
+## 🔗 Useful Links
+
+- **Live Preview:** [https://petpooja-tan.vercel.app](https://petpooja-tan.vercel.app)
+- **GitHub Repo:** [https://github.com/yashgami15/petpooja](https://github.com/yashgami15/petpooja)
