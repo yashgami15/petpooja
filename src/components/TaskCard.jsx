@@ -1,5 +1,10 @@
 import React from "react";
 import "./styles/TaskCard.css";
+import messageicon from "../assets/message.svg";
+import calendaricon from "../assets/calendar.svg";
+import clockicon from "../assets/clock.svg";
+import dataflowicon from "../assets/dataflow.svg";
+
 
 const TaskCard = ({
   id,
@@ -27,7 +32,7 @@ const TaskCard = ({
         </div>
         <div className="task-count">
           <img
-            src="./src/assets/message.svg"
+            src={messageicon}
             alt="Count"
             className="count-icon"
           />
@@ -39,7 +44,7 @@ const TaskCard = ({
         <div className="task-datetime">
           <div className="date-info">
             <img
-              src='./src/assets/calendar.svg'
+              src={calendaricon}
               alt="Time"
               className="time-icon"
             />
@@ -47,7 +52,7 @@ const TaskCard = ({
           </div>
           <div className="time-info">
             <img
-              src='./src/assets/clock.svg'
+              src={clockicon}
               alt="Time"
               className="time-icon"
             />
@@ -57,7 +62,7 @@ const TaskCard = ({
 
         <div className="task-tags">
           <div className="task-avatar">
-            <img src="./src/assets/dataflow.svg"
+            <img src={dataflowicon}
               alt="User"
               className="avatar-icon"
             />
